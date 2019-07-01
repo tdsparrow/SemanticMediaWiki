@@ -430,7 +430,7 @@ class Database {
 			$this->writeConnection->clearFlag( DBO_TRX );
 
 			if ( $autoTrx && $this->writeConnection->trxLevel() ) {
-				$this->writeConnection->commit( __METHOD__ );
+			        $this->writeConnection->commit( __METHOD__, $this->writeConnection::FLUSHING_ALL_PEERS );
 			}
 		}
 
